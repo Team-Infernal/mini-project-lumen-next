@@ -52,6 +52,6 @@ class ArticlesController extends Controller
   public function delete($id)
   {
     Articles::findOrFail($id)->delete();
-    return response('Deleted Successfully', 200);
+    return response('Deleted successfully', 200);
   }
 }
