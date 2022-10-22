@@ -1,51 +1,36 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 
-import Article from "components/Article";
+import GuestLayout from "components/Layouts/GuestLayout";
+import Article from "components/Articles/Article";
 import Loader from "components/Loader";
 
-import sleep from "utils/sleep";
+import fetcher from "utils/fetcher";
+import useAuth from "hooks/useAuth";
 
 const ArticlePage: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
+  const { user } = useAuth({ middleware: ["guest"] });
+  const { data: article, error } = useSWR<Article>(
+    `/api/articles/${id}`,
+    fetcher
+  );
 
-  const [article, setArticle] = useState<Article | null>(null);
-
-  useEffect(() => {
-    const fetchArticle = async () => {
-      const response = await fetch(`/api/articles/${id}`, {
-        method: "GET",
-      });
-
-      await sleep(250);
-
-      if (response.ok) {
-        const data: Article = await response.json();
-        setArticle(data);
-      }
-    };
-
-    fetchArticle();
-  }, []);
+  if (error) {
+    return <div>Erreur</div>;
+  }
 
   if (!article) {
     return <Loader />;
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-between animate-fade-in-up">
-      <Article article={article} />
-    </div>
+    <GuestLayout>
+      <Article article={article} user={user} />
+    </GuestLayout>
   );
 };
 
-const getServerSideProps = async () => {
-  return {
-    props: {},
-  };
-};
-
 export default ArticlePage;
-export { getServerSideProps };

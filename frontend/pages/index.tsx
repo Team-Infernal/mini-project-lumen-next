@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
 
-import ArticleList from "components/ArticleList";
+import ArticleList from "components/Articles/ArticleList";
+import GuestLayout from "components/Layouts/GuestLayout";
 
 const ArticlesPage: NextPage = () => {
   return (
-    <div>
+    <GuestLayout>
       <ArticleList />
-    </div>
+    </GuestLayout>
   );
 };
 

@@ -1,12 +1,13 @@
 import { NextPage } from "next";
 
-import CreateArticle from "components/CreateArticle";
+import AuthorLayout from "components/Layouts/AuthorLayout";
+import CreateArticle from "components/Articles/CreateArticle";
 
 const CreatePage: NextPage = () => {
   return (
-    <div className="min-h-screen p-24 flex flex-col justify-between animate-fade-in-up">
+    <AuthorLayout>
       <CreateArticle />
-    </div>
+    </AuthorLayout>
   );
 };
 
