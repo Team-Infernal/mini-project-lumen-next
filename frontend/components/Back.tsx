@@ -13,7 +13,10 @@ const Back = ({
 }: BackProps) => {
   return (
     <Link href={href}>
-      <a className="link link-hover text-sm w-fit mb-2 inline-flex gap-2 items-center">
+      <a
+        data-type="back-link"
+        className="link link-hover text-sm w-fit mb-2 inline-flex gap-2 items-center cursor-none interactable"
+      >
         <FontAwesomeIcon icon={faAngleLeft} className="text-primary" />
         {text}
       </a>

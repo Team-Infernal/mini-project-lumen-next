@@ -38,8 +38,9 @@ const Textarea = React.forwardRef(
         )}
         <textarea
           placeholder={placeholder}
+          data-type="text"
           className={cn(
-            `textarea text-neutral-content bg-base-300 ${className}`,
+            `textarea interactable text-neutral-content bg-base-300 ${className}`,
             {
               "textarea-bordered": bordered,
             }
@@ -54,5 +55,7 @@ const Textarea = React.forwardRef(
     );
   }
 );
+
+Textarea.displayName = "Textarea";
 
 export default Textarea;

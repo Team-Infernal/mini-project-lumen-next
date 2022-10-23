@@ -43,7 +43,7 @@ const ArticleList = () => {
         ) : (
           <>
             <Anchor href="/register" className="btn btn-primary">
-              S'inscrire
+              S&apos;inscrire
             </Anchor>
             <Anchor href="/login" className="btn btn-secondary">
               Se connecter

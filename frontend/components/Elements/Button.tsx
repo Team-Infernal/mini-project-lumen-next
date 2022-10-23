@@ -49,7 +49,8 @@ const Button = ({
   const BaseButton = () => (
     <button
       type={type}
-      className={cn(`btn ${className}`, {
+      data-type="interact"
+      className={cn(`btn animate-none cursor-none interactable ${className}`, {
         "gap-2": hasIcon,
         loading: loading && !done,
       })}

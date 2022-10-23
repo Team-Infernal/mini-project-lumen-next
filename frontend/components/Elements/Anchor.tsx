@@ -16,7 +16,9 @@ const Anchor = ({
   if (local) {
     return (
       <Link href={href}>
-        <a className={className}>{children}</a>
+        <a data-type="link" className={`cursor-none interactable ${className}`}>
+          {children}
+        </a>
       </Link>
     );
   }

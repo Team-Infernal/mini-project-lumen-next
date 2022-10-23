@@ -1,8 +1,9 @@
-import Link from "next/link";
 import React, { useRef, useState } from "react";
 
 import Back from "components/Back";
 import Input from "components/Elements/Input";
+import Anchor from "components/Elements/Anchor";
+import Button from "components/Elements/Button";
 
 import useAuth from "hooks/useAuth";
 
@@ -95,12 +96,12 @@ const RegisterForm = () => {
         />
       </div>
       <div className="flex justify-between items-center gap-8">
-        <Link href="/login">
-          <a className="link link-hover">Déjà un compte ? Connectez-vous</a>
-        </Link>
-        <button type={"submit"} className="btn btn-primary flex-grow">
-          S'inscrire
-        </button>
+        <Anchor href="/login" className="link link-hover">
+          Déjà un compte ? Connectez-vous
+        </Anchor>
+        <Button type="submit" className="btn-primary flex-grow">
+          S&apos;inscrire
+        </Button>
       </div>
     </form>
   );

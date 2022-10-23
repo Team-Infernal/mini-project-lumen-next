@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faX } from "@fortawesome/free-solid-svg-icons";
 
-import Anchor from "components/Elements/Anchor";
 import Button from "components/Elements/Button";
 
 type Props = {
@@ -15,12 +13,15 @@ const CreateArticleActions = (props: Props) => {
 
   return (
     <footer className="px-24 py-4 w-[54rem] flex gap-4">
-      <Anchor href="/" className="w-0 flex-grow">
-        <button className="w-full btn gap-2">
-          <FontAwesomeIcon icon={faX} className="text-primary" />
-          Annuler
-        </button>
-      </Anchor>
+      <Button
+        href="/"
+        className="w-full"
+        anchorClassName="w-0 flex-grow"
+        icon={faX}
+        iconClassName="text-primary"
+      >
+        Annuler
+      </Button>
       <Button
         loading={loading}
         done={done}

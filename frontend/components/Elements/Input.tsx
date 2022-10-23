@@ -40,10 +40,14 @@ const Input = React.forwardRef(
         )}
         <input
           type={type}
+          data-type="text"
           placeholder={placeholder}
-          className={cn(`input text-neutral-content bg-base-300 ${className}`, {
-            "input-bordered": bordered,
-          })}
+          className={cn(
+            `input interactable text-neutral-content bg-base-300 ${className}`,
+            {
+              "input-bordered": bordered,
+            }
+          )}
           disabled={disabled}
           ref={ref}
           onChange={onChange}
@@ -54,5 +58,7 @@ const Input = React.forwardRef(
     );
   }
 );
+
+Input.displayName = "Input";
 
 export default Input;

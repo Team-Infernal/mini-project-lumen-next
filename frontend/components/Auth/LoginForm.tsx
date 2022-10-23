@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 import React, { useRef, useState } from "react";
 
-import InputError from "components/InputError";
+import Input from "components/Elements/Input";
+import Anchor from "components/Elements/Anchor";
+import Button from "components/Elements/Button";
+import Back from "components/Back";
 
 import useAuth from "hooks/useAuth";
 
@@ -38,34 +38,22 @@ const LoginForm = () => {
       className="px-24 py-4 w-[54rem] flex flex-col gap-8"
     >
       <div className="form-control">
-        <Link href="/">
-          <a className="link link-hover text-sm w-fit mb-2 inline-flex gap-2 items-center">
-            <FontAwesomeIcon icon={faAngleLeft} className="text-primary" />
-            Retour à la liste d'articles
-          </a>
-        </Link>
-
-        <label className="label">
-          <span className="label-text">Adresse email</span>
-        </label>
-        <input
-          type={"email"}
+        <Back />
+        <Input
+          label="Adresse email"
+          bordered
+          errors={errors.email}
           placeholder="john.smith@teaminfernal.fr"
           ref={emailRef}
-          className="input input-bordered bg-base-300 text-neutral-content"
         />
-        <InputError errors={errors.email} />
-
-        <label className="label">
-          <span className="label-text">Mot de passe</span>
-        </label>
-        <input
-          type={"password"}
+        <Input
+          type="password"
+          label="Mot de passe"
+          bordered
+          errors={errors.password}
           placeholder="********"
           ref={passwordRef}
-          className="input input-bordered bg-base-300 text-neutral-content"
         />
-        <InputError errors={errors.password} />
       </div>
       <div className="flex gap-4 items-center">
         <input
@@ -76,14 +64,12 @@ const LoginForm = () => {
         <span>Se rappeler de moi</span>
       </div>
       <div className="flex justify-between items-center gap-8">
-        <Link href="/register">
-          <a className="link link-hover">
-            Pas encore de compte ? Inscrivez-vous
-          </a>
-        </Link>
-        <button type={"submit"} className="btn btn-primary flex-grow">
+        <Anchor href="/register" className="link link-hover">
+          Pas encore de compte ? Inscrivez-vous
+        </Anchor>
+        <Button type="submit" className="btn-primary flex-grow">
           Se connecter
-        </button>
+        </Button>
       </div>
     </form>
   );

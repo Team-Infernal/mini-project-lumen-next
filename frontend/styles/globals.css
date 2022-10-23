@@ -17,4 +17,26 @@ a {
 
 * {
   box-sizing: border-box;
+  cursor: none;
+}
+
+#trailer {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body:hover > #__next > #trailer {
+  opacity: 0.75;
 }

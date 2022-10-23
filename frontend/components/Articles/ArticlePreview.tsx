@@ -10,7 +10,10 @@ const ArticlePreview = (props: Props) => {
   return (
     <Link href={article.id}>
       <a>
-        <div className="card bg-base-300 w-[36rem] text-base-content">
+        <div
+          data-type="link"
+          className="card bg-base-300 w-[36rem] text-base-content interactable"
+        >
           <div className="card-body">
             <h2 className="card-title">{article.title}</h2>
             <p>{article.content}</p>
